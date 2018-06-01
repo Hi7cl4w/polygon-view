@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:id="@+id/layout_top_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/left_top_button"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center">
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/top_left_image_view"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:adjustViewBounds="true"
+            android:clickable="false"
+            android:visibility="visible" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_top_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/right_top_button"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center">
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/top_right_image_view"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:adjustViewBounds="true"
+            android:clickable="false"
+            android:visibility="visible" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_bottom_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/right_bottom_button"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center">
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/bottom_right_image_view"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:adjustViewBounds="true"
+            android:clickable="false"
+            android:visibility="visible" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_bottom_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/layout_bottom_right"
+        android:background="@drawable/left_bottom_button"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center">
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/bottom_left_image_view"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:adjustViewBounds="true"
+            android:clickable="false"
+            android:visibility="visible" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_center"
+        android:layout_width="114dp"
+        android:layout_height="114dp"
+        android:background="@drawable/center_button"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center">
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/center_image_view"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:adjustViewBounds="true"
+            android:clickable="false"
+            android:visibility="visible" />
+
+    </LinearLayout>
+
+</merge>

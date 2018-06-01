@@ -1,0 +1,9 @@
+<resources>
+    <declare-styleable name="PolygonView">
+        <attr name="buttonCenterDrawable" format="color|reference" />
+        <attr name="buttonTopLeftDrawable" format="color|reference" />
+        <attr name="buttonTopRightDrawable" format="color|reference" />
+        <attr name="buttonBottomLeftDrawable" format="color|reference" />
+        <attr name="buttonBottomRightDrawable" format="color|reference" />
+    </declare-styleable>
+</resources>
