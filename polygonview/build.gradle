@@ -27,6 +27,28 @@ android {
 
 }
 
+
+task sourcesJar(type: Jar) {
+    classifier = 'sources'
+    from android.sourceSets.main.java.srcDirs
+}
+
+task javadoc(type: Javadoc) {
+    failOnError false
+    source = android.sourceSets.main.java.sourceFiles
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+    classpath += configurations.compile
+}
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+artifacts {
+    archives javadocJar
+    archives sourcesJar
+}
+
 ext {
     bintrayRepo = 'maven'
     bintrayName = 'PolygonView'
@@ -58,7 +80,6 @@ version = libraryVersion
 install {
     repositories.mavenInstaller {
         pom.project {
-            packaging 'aar'
             groupId publishedGroupId
             artifactId artifact
 
@@ -95,16 +116,19 @@ bintray {
     pkg {
         repo = bintrayRepo
         name = bintrayName
+        userOrg = 'pinocks'
         desc = libraryDescription
         websiteUrl = siteUrl
         vcsUrl = gitUrl
         licenses = allLicenses
         dryRun = false
         publish = true
-        override = false
+        override = true
         publicDownloadNumbers = true
         version {
+            name = libraryVersion
             desc = libraryDescription
+            attributes = ['gradle-plugin': 'com.use.less:com.use.less.gradle:gradle-useless-plugin']
         }
     }
 }
