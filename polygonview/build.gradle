@@ -51,11 +51,11 @@ artifacts {
 
 ext {
     bintrayRepo = 'maven'
-    bintrayName = 'PolygonView'
+    bintrayName = 'polygonview'
 
-    publishedGroupId = 'com.pinocks.polygonview'
-    libraryName = 'PolygonView'
-    artifact = 'PolygonView'
+    publishedGroupId = 'com.pinocks'
+    libraryName = 'polygonview'
+    artifact = 'polygonview'
 
     libraryDescription = 'PolygonView.'
 
