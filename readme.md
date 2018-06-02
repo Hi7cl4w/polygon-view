@@ -1,4 +1,4 @@
-# PolygonView
+# PolygonView  [ ![Download](https://api.bintray.com/packages/pinocks/maven/PolygonView/images/download.svg) ](https://bintray.com/pinocks/maven/PolygonView/_latestVersion) [![Build Status](https://travis-ci.org/pinocks/polygon-view.svg?branch=master)](https://travis-ci.org/pinocks/polygon-view)
 
 ![](extras/preview.jpg)
 
