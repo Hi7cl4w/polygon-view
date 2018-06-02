@@ -1,4 +1,4 @@
-# PolygonView  [ ![Download](https://api.bintray.com/packages/pinocks/maven/PolygonView/images/download.svg) ](https://bintray.com/pinocks/maven/PolygonView/_latestVersion) [![Build Status](https://travis-ci.org/pinocks/polygon-view.svg?branch=master)](https://travis-ci.org/pinocks/polygon-view)
+# PolygonView  [ ![Download](https://api.bintray.com/packages/pinocks/maven/polygonview/images/download.svg) ](https://bintray.com/pinocks/maven/polygonview/_latestVersion) [![Build Status](https://travis-ci.org/pinocks/polygon-view.svg?branch=master)](https://travis-ci.org/pinocks/polygon-view)
 
 ![](extras/preview.jpg)
 
@@ -10,13 +10,13 @@ For more information please see [the website][1]
 
 grab via Gradle:
 ```groovy
-implementation 'com.pinocks.polygonview:PolygonView:1.0.0'
+implementation 'com.pinocks:polygonview:1.0.0'
 ```
 or Maven:
 ```xml
 <dependency>
-  <groupId>com.pinocks.polygonview</groupId>
-  <artifactId>PolygonView</artifactId>
+  <groupId>com.pinocks</groupId>
+  <artifactId>polygonview</artifactId>
   <version>1.0.0</version>
   <type>pom</type>
 </dependency>
