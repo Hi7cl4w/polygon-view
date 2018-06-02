@@ -1,9 +1,10 @@
-package com.pinocks.diamondlayoutexample;
+package com.pinocks.polygonviewexample;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.pinocks.diamondlayoutexample.R;
 import com.pinocks.polygonview.PolygonView;
 import com.pinocks.polygonview.PolygonViewEventListener;
 

@@ -1,4 +1,4 @@
-package com.pinocks.diamondlayoutexample;
+package com.pinocks.polygonviewexample;
 
 import org.junit.Test;
 

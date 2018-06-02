@@ -5,18 +5,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryDark"
-    tools:context=".MainActivity">
+    tools:context="com.pinocks.polygonviewexample.MainActivity">
 
 
     <com.pinocks.polygonview.PolygonView
         android:id="@+id/polygonview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:buttonBottomLeftDrawable="@android:drawable/ic_input_get"
-        app:buttonBottomRightDrawable="@android:drawable/ic_dialog_email"
-        app:buttonCenterDrawable="@android:drawable/ic_menu_add"
-        app:buttonTopLeftDrawable="@android:drawable/ic_dialog_info"
-        app:buttonTopRightDrawable="@android:drawable/ic_dialog_alert"
+        android:layout_height="match_parent"
+        app:buttonBottomLeftDrawable="@drawable/settings"
+        app:buttonBottomRightDrawable="@drawable/envelope"
+        app:buttonCenterDrawable="@drawable/house"
+        app:buttonTopLeftDrawable="@drawable/phone_call"
+        app:buttonTopRightDrawable="@drawable/magnifying_glass"
         />
 
 </android.support.constraint.ConstraintLayout>
