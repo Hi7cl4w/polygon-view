@@ -59,8 +59,8 @@ ext {
 
     libraryDescription = 'PolygonView.'
 
-    siteUrl = 'https://github.com/Pinocks/polygon-view'
-    gitUrl = 'https://github.com/Pinocks/polygon-view.git'
+    siteUrl = 'https://github.com/pinocks/polygon-view'
+    gitUrl = 'https://github.com/pinocks/polygon-view.git'
 
     libraryVersion = '1.0.0'
 

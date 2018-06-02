@@ -4,9 +4,11 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
@@ -35,6 +37,10 @@ public class PolygonView extends FrameLayout{
     private AppCompatImageView bottomLeftImageView;
     private AppCompatImageView bottomRightImageView;
     private Context context;
+    private LinearLayout bottomMask;
+    private LinearLayout topMask;
+    private LinearLayout leftMask;
+    private LinearLayout rightMask;
 
     public PolygonView(Context context) {
         super(context);
@@ -61,12 +67,64 @@ public class PolygonView extends FrameLayout{
         topRightLayout = rootView.findViewById(R.id.layout_top_right);
         bottomLeftLayout = rootView.findViewById(R.id.layout_bottom_left);
         bottomRightLayout = rootView.findViewById(R.id.layout_bottom_right);
+        bottomMask = rootView.findViewById(R.id.mask_bottom);
+        topMask = rootView.findViewById(R.id.mask_top);
+        leftMask = rootView.findViewById(R.id.mask_left);
+        rightMask = rootView.findViewById(R.id.mask_right);
         centerImageView = rootView.findViewById(R.id.center_image_view);
         topLeftImageView = rootView.findViewById(R.id.top_left_image_view);
         topRightImageView = rootView.findViewById(R.id.top_right_image_view);
         bottomLeftImageView = rootView.findViewById(R.id.bottom_left_image_view);
         bottomRightImageView = rootView.findViewById(R.id.bottom_right_image_view);
 
+
+
+        leftMask.setOnTouchListener(new OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if(event.getAction() == MotionEvent.ACTION_DOWN){
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                        bottomLeftLayout.setBackground(getResources().getDrawable(R.drawable.left_bottom_button_shape_selected));
+                    }else{
+                        bottomLeftLayout.setBackgroundDrawable(getResources().getDrawable(R.drawable.left_bottom_button_shape_selected));
+                    }
+                    if(polygonViewEventListener!=null)
+                        polygonViewEventListener.onClickBottomLeftButton();
+                }
+                if(event.getAction() == MotionEvent.ACTION_UP){
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                        bottomLeftLayout.setBackground(getResources().getDrawable(R.drawable.left_bottom_button));
+                    }else{
+                        bottomLeftLayout.setBackgroundDrawable(getResources().getDrawable(R.drawable.left_bottom_button));
+                    }
+                }
+                return false;
+
+            }
+        });
+        rightMask.setOnTouchListener(new OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if(event.getAction() == MotionEvent.ACTION_DOWN){
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                        topRightLayout.setBackground(getResources().getDrawable(R.drawable.right_top_button_shape_selected));
+                    }else{
+                        topRightLayout.setBackgroundDrawable(getResources().getDrawable(R.drawable.right_top_button_shape_selected));
+                    }
+                    if(polygonViewEventListener!=null)
+                        polygonViewEventListener.onClickTopRightButton();
+                }
+                if(event.getAction() == MotionEvent.ACTION_UP){
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                        topRightLayout.setBackground(getResources().getDrawable(R.drawable.right_top_button));
+                    }else{
+                        topRightLayout.setBackgroundDrawable(getResources().getDrawable(R.drawable.right_top_button));
+                    }
+                }
+                return false;
+
+            }
+        });
         centerLayout.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -189,6 +247,8 @@ public class PolygonView extends FrameLayout{
 
         int centerWidth= (int) (114*multiplier);
         int centerHeight= (int) (114*multiplier);
+        int centerFullWidth= (int) ((114/1.42)*multiplier);
+        int centerFullHeight= (int) ((114/1.42)*multiplier);
 
         int topLeftWidth= (int) (97*multiplier);
         int topLeftHeight= (int) (154*multiplier);
@@ -208,27 +268,50 @@ public class PolygonView extends FrameLayout{
         int centerMaxX=(w/2)+(centerWidth/2);
         int centerMaxY=(h/2)+(centerHeight/2);
 
-        FrameLayout.LayoutParams centerParams = new FrameLayout.LayoutParams(centerWidth, centerHeight);
-        centerParams.leftMargin = centerX;
-        centerParams.topMargin = centerY;
+        int centerFullX=(w/2)-(centerFullWidth/2);
+        int centerFullY=(h/2)-(centerFullHeight/2);
+
+        FrameLayout.LayoutParams centerParams = new FrameLayout.LayoutParams(centerFullWidth, centerFullHeight);
+        centerParams.leftMargin = centerFullX;
+        centerParams.topMargin = centerFullY;
         FrameLayout.LayoutParams topLeftParams = new FrameLayout.LayoutParams(topLeftWidth, topLeftHeight);
-        topLeftParams.leftMargin = (int) (centerX+(centerWidth/2.06)-topLeftWidth);
-        topLeftParams.topMargin = (int) (centerY+(centerHeight/2.06)-topLeftHeight);
+        topLeftParams.leftMargin = (int) (centerX+(centerWidth/2.04)-topLeftWidth);
+        topLeftParams.topMargin = (int) (centerY+(centerHeight/2.05)-topLeftHeight);
         FrameLayout.LayoutParams topRightLayoutParams = new FrameLayout.LayoutParams(topRightWidth, topRightHeight);
-        topRightLayoutParams.leftMargin = (int) (centerMaxX+(centerHeight/2.75)-topRightWidth);;
+        topRightLayoutParams.leftMargin = (int) (centerMaxX+(centerHeight/2.75)-topRightWidth);
         topRightLayoutParams.topMargin = (int) (centerY+(centerHeight/1.2)-topRightHeight);
         FrameLayout.LayoutParams bottomLeftLayoutParams = new FrameLayout.LayoutParams(bottomLeftWidth, bottomLeftHeight);
-        bottomLeftLayoutParams.leftMargin = (int) (centerX+(centerHeight/2.06)-bottomLeftWidth);;
+        bottomLeftLayoutParams.leftMargin = (int) (centerX+(centerHeight/2.04)-bottomLeftWidth);
         bottomLeftLayoutParams.topMargin = (int) (centerMaxY+(centerHeight/1.15)-bottomLeftHeight);
         FrameLayout.LayoutParams bottomRightLayoutParams = new FrameLayout.LayoutParams(bottomRightWidth, bottomRightHeight);
-        bottomRightLayoutParams.leftMargin = (int) (centerMaxX+(centerHeight/2.75)-bottomRightWidth);
-        bottomRightLayoutParams.topMargin = (int) (centerMaxY+(centerHeight/1.15)-bottomRightHeight);
+        bottomRightLayoutParams.leftMargin = (int) (centerMaxX+(centerHeight/2.74)-bottomRightWidth);
+        bottomRightLayoutParams.topMargin = (int) (centerMaxY+(centerHeight/1.153)-bottomRightHeight);
 
         this.updateViewLayout(centerLayout, centerParams);
         this.updateViewLayout(topLeftLayout, topLeftParams);
         this.updateViewLayout(topRightLayout, topRightLayoutParams);
         this.updateViewLayout(bottomLeftLayout, bottomLeftLayoutParams);
         this.updateViewLayout(bottomRightLayout, bottomRightLayoutParams);
+
+        FrameLayout.LayoutParams bottomMaskParams = new FrameLayout.LayoutParams(bottomLeftHeight, bottomLeftHeight);
+        bottomMaskParams.leftMargin = (int) (centerX+(centerHeight/1.98)-bottomLeftWidth);
+        bottomMaskParams.topMargin = (int) (centerMaxY+(centerHeight/0.83)-bottomLeftWidth);
+        this.updateViewLayout(bottomMask, bottomMaskParams);
+
+        FrameLayout.LayoutParams topMaskParams = new FrameLayout.LayoutParams(bottomLeftHeight, bottomLeftHeight);
+        topMaskParams.leftMargin = (int) (centerX-(bottomLeftWidth/2.42));
+        topMaskParams.topMargin = (int) (centerY-(bottomLeftWidth*2.43));
+        this.updateViewLayout(topMask, topMaskParams);
+
+        FrameLayout.LayoutParams leftMaskParams = new FrameLayout.LayoutParams(bottomLeftWidth, bottomLeftWidth);
+        leftMaskParams.leftMargin = (int) (centerX+(centerHeight/4.06)-bottomLeftWidth/0.682);
+        leftMaskParams.topMargin = (int) (centerMaxY+(centerHeight/1.2)-bottomLeftHeight);
+        this.updateViewLayout(leftMask, leftMaskParams);
+
+        FrameLayout.LayoutParams rightMaskParams = new FrameLayout.LayoutParams(bottomLeftWidth, bottomLeftWidth);
+        rightMaskParams.leftMargin = (int) (centerMaxX+(centerHeight/1.01)-bottomLeftWidth);
+        rightMaskParams.topMargin = (int) (centerMaxY+(centerHeight/1.4)-bottomLeftHeight);
+        this.updateViewLayout(rightMask, rightMaskParams);
 
 
         LinearLayout.LayoutParams topLeftDrawableParams = new LinearLayout.LayoutParams(centerWidth/5,centerWidth/5);

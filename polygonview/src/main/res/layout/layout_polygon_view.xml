@@ -2,6 +2,25 @@
 <merge xmlns:android="http://schemas.android.com/apk/res/android">
 
     <LinearLayout
+        android:id="@+id/layout_bottom_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/layout_bottom_right"
+        android:background="@drawable/left_bottom_button"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center">
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/bottom_left_image_view"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:adjustViewBounds="true"
+            android:clickable="false"
+            android:visibility="visible" />
+
+    </LinearLayout>
+    <LinearLayout
         android:id="@+id/layout_top_left"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -59,19 +78,20 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/layout_bottom_left"
+        android:id="@+id/layout_center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/layout_bottom_right"
-        android:background="@drawable/left_bottom_button"
+        android:background="@drawable/center_button_full"
         android:clickable="true"
         android:focusable="true"
+        android:rotation="45"
         android:gravity="center">
 
         <android.support.v7.widget.AppCompatImageView
-            android:id="@+id/bottom_left_image_view"
+            android:id="@+id/center_image_view"
             android:layout_width="40dp"
             android:layout_height="40dp"
+            android:rotation="-45"
             android:adjustViewBounds="true"
             android:clickable="false"
             android:visibility="visible" />
@@ -79,22 +99,46 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/layout_center"
-        android:layout_width="114dp"
-        android:layout_height="114dp"
-        android:background="@drawable/center_button"
+        android:id="@+id/mask_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:clickable="true"
         android:focusable="true"
-        android:gravity="center">
-
-        <android.support.v7.widget.AppCompatImageView
-            android:id="@+id/center_image_view"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:adjustViewBounds="true"
-            android:clickable="false"
-            android:visibility="visible" />
+        android:rotation="45"
+        android:gravity="center"
+        android:orientation="vertical">
 
     </LinearLayout>
+    <LinearLayout
+        android:id="@+id/mask_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:rotation="45"
+        android:gravity="center"
+        android:orientation="vertical"
+        />
+
+    <LinearLayout
+        android:id="@+id/mask_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:rotation="45"
+        android:gravity="center"
+        android:orientation="vertical"
+        />
+    <LinearLayout
+        android:id="@+id/mask_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:rotation="45"
+        android:gravity="center"
+        android:orientation="vertical"
+        />
 
 </merge>
