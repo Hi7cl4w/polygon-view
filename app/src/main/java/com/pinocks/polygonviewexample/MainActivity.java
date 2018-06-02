@@ -4,11 +4,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import com.pinocks.diamondlayoutexample.R;
 import com.pinocks.polygonview.PolygonView;
 import com.pinocks.polygonview.PolygonViewEventListener;
-
-import static android.widget.Toast.LENGTH_LONG;
 
 public class MainActivity extends AppCompatActivity {
     PolygonView polygonView;

@@ -1,14 +1,6 @@
 apply plugin: 'com.android.application'
 
 android {
-    signingConfigs {
-        config {
-            keyAlias 'pinocks_lib'
-            keyPassword 'VQxDT2yuP4tLSyFr'
-            storeFile file('/Users/manuk/Library/Mobile Documents/com~apple~CloudDocs/pinocks')
-            storePassword 'VQxDT2yuP4tLSyFr'
-        }
-    }
     compileSdkVersion 27
     defaultConfig {
         applicationId "com.pinocks.diamondlayoutexample"
