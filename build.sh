@@ -11,27 +11,9 @@ else
   TRAVIS_PULL_REQUEST=false
 fi
 
-# Copy mock google-services file
-echo "Using mock google-services.json"
-cp mock-google-services.json admob/app/google-services.json
-cp mock-google-services.json analytics/app/google-services.json
-cp mock-google-services.json app-indexing/app/google-services.json
-cp mock-google-services.json auth/app/google-services.json
-cp mock-google-services.json config/app/google-services.json
-cp mock-google-services.json crash/app/google-services.json
-cp mock-google-services.json database/app/google-services.json
-cp mock-google-services.json dynamiclinks/app/google-services.json
-cp mock-google-services.json firestore/app/google-services.json
-cp mock-google-services.json functions/app/google-services.json
-cp mock-google-services.json invites/app/google-services.json
-cp mock-google-services.json perf/app/google-services.json
-cp mock-google-services.json messaging/app/google-services.json
-cp mock-google-services.json mlkit/app/google-services.json
-cp mock-google-services.json storage/app/google-services.json
-
 # Install preview deps
 ${ANDROID_HOME}/tools/bin/sdkmanager --channel=3 \
-  "tools" "platform-tools" "build-tools;26.0.0-rc2" "platforms;android-26"
+  "tools" "platform-tools" "build-tools;27.0.3" "platforms;android-27"
 
 # Build
 if [ $TRAVIS_PULL_REQUEST = false ] ; then
