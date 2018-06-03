@@ -45,7 +45,7 @@ Snapshots of the development version are available in [Sonatype's `snapshots` re
 
 # Listener
 
-Just add a listener into ExpansionLayout (**not the header !**) to follow the expansion layout state
+Just add a listener to receive button interaction
 
 ```java
 PolygonView polygonView = findViewById(R.id.polygonview);
