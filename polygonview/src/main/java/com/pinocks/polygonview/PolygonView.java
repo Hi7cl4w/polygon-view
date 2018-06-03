@@ -88,8 +88,6 @@ public class PolygonView extends FrameLayout{
                     }else{
                         bottomLeftLayout.setBackgroundDrawable(getResources().getDrawable(R.drawable.left_bottom_button_shape_selected));
                     }
-                    if(polygonViewEventListener!=null)
-                        polygonViewEventListener.onClickBottomLeftButton();
                 }
                 if(event.getAction() == MotionEvent.ACTION_UP){
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
@@ -97,6 +95,9 @@ public class PolygonView extends FrameLayout{
                     }else{
                         bottomLeftLayout.setBackgroundDrawable(getResources().getDrawable(R.drawable.left_bottom_button));
                     }
+
+                    if(polygonViewEventListener!=null)
+                        polygonViewEventListener.onClickBottomLeftButton();
                 }
                 return false;
 
@@ -111,8 +112,6 @@ public class PolygonView extends FrameLayout{
                     }else{
                         topRightLayout.setBackgroundDrawable(getResources().getDrawable(R.drawable.right_top_button_shape_selected));
                     }
-                    if(polygonViewEventListener!=null)
-                        polygonViewEventListener.onClickTopRightButton();
                 }
                 if(event.getAction() == MotionEvent.ACTION_UP){
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
@@ -120,6 +119,8 @@ public class PolygonView extends FrameLayout{
                     }else{
                         topRightLayout.setBackgroundDrawable(getResources().getDrawable(R.drawable.right_top_button));
                     }
+                    if(polygonViewEventListener!=null)
+                        polygonViewEventListener.onClickTopRightButton();
                 }
                 return false;
 
